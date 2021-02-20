@@ -1,0 +1,13 @@
+server:
+  port: 8762
+eureka:
+  client:
+    register-with-eureka: true  #是否向eureka注册自己，因为自己是注册中心所以为false，默认为true
+    fetch-registry: true         #是否从eureka server获取注册信息，默认为true因为为单节点，不需要从别的server同步信息，从而设置为false
+    service-url:
+      defaultZone: http://peer1:8761/eureka #设置与server交互的地址，查询服务和注册服务都需要这个地址，多哥server的话可以使用，分割
+  instance:
+    hostname: peer2
+spring:
+  application:
+    name: eureka2
